@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mayank-logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home page</title>
+</head>
+
+<body>
+    <div class="container-fluid  bgimg">
+        <div class="container-fluid  overlay_bgimg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 d-none d-lg-block">
+                        <li class="mt-2">
+                            <button class="nav_link_btn"><a href="https://api.whatsapp.com/send?phone=8178169046"
+                                    target="_blank" class="text-white">WhatsApp</a></button>
+
+                        </li>
+                    </div>
+                    <div class="col-md-4 d-none d-lg-block">
+                        <nav class="">
+                            <li><button class="nav_link_btn"><a href="#Contactme">Contact Me</a></button></li>
+                            <li>{% for item in resume %}
+                                <button class="nav_link_btn"><a href="{{item.resume.url}}" target="_blank">Download
+                                        CV</a></button>
+                                {% endfor %}
+                            </li>
+                            <li><button class="nav_link_btn"><a href="#mywork">My work</a></button></li>
+                        </nav>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col">
+                                <div class="desc">
+                                    <h2 class="text-center display-4">Hey,I am Mayank your front end developer <br> and
+                                        freelancer.
+                                    </h2>
+                                    <h1 class="display-3">Call me <span
+                                            class="border-bottom fw-bold border-4">93&nbsp;10&nbsp;30&nbsp;75&nbsp;06</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form using Django Model Form -->
+    <!-- Contact Form using Django Model Form -->
+
+    <div class="container-fluid form_img">
+        <div class="container-fluid  form_img_abs " id="Contactme">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 mt-2">
+                    <h2 class="text-center text-white mt-2 lead display-5">Get in Touch</h2>
+                    <form action="" method="POST" class="bgBlur">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">* Name</label>
+                            {{form.name}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname" class="form-label">&nbsp;&nbsp;Last Name</label>
+                            {{form.lastname}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">* Email address</label>
+                            {{form.email}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="phonenumber" class="form-label">&nbsp;&nbsp;Phone</label>
+                            {{form.phone}}
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">&nbsp;&nbsp;Message</label>
+                            {{form.message}}
+                        </div>
+                        <a href="#"><button type="submit" class="btn btnbg w-100">Send</button></a>
+                    </form>
+                    {% if messages %}
+                    {% for m in messages %}
+                    <div class="alert alert-sucess m-2" id="msg" role="alert"
+                        style="background-color: lightgreen;color:black;text-align: center;font-weight: 600;">
+                        {{m}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mywork area  -->
+    <!-- mywork area  -->
+    <!-- mywork area  -->
+    <div class="container-fluid mywork" id="mywork">
+        <div class="container-fluid makeblur">
+            <div class="row justify-content-around">
+                <div class="col-md-12">
+                    <div class="accordion " id="accordionExample">
+                        <div class="accordion-item bg_tarnsparent_accor">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button  text-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    <span><img src="{% static 'fonts/arrow_forward.svg' %}" width="20"
+                                            alt=""></span>&nbsp;Links of projects</button>
+
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body py-5">
+                                    <ol class="">
+
+                                        {% for links in work_links %}
+                                        <li>
+                                        <a href="{{links.link}}" target="_blank">{{links.link_info}}</a>
+                                        </li>
+                                        {% endfor %}
+
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg_tarnsparent_accor mt-md-2">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed  text-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    <span><img src="{% static 'fonts/arrow_forward.svg' %}" width="20"
+                                            alt=""></span>&nbsp;Technical Skills
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <ul class="">
+                                        {% for links in techskill %}
+                                        <div class="text-white my-2">
+                                            {{links.skill_desc | safe }}
+                                        </div>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="container-fluid mt-md-5">
+            <div class="row">
+                <div class="col-md-9">
+
+                </div>
+                <div class="col-md-3">
+                    <div class="social_links">
+                        <ul>
+                            {% for social_links in social_icon %}
+                            <li><a href="{{social_links.icon_link}}" target="_blank"><img src="{{social_links.icon_image.url}}"
+                                        height="50" width="80" alt="{{social_links.icon_name}}"></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- ###--------------------bootstrap js------------------## -->
+    <script src="{% static 'css/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- ###--------------------bootstrap js------------------## -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
