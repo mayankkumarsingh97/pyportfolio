@@ -94,22 +94,15 @@ color:#fff;
 }
 
 .form_img_abs {
-
-    /* border: 1px solid red; */
-    background-color: #fff;
     position: absolute;
     margin-top: 60px;
-   
     left: 0;
-    
-    /* padding:0 0 20px 0; */
-    /* padding-bottom: 40px; */
-    /* height: 100vh; */
     background: url('/static/img/contactus.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     width: 100%;
+    height: calc(100vh + 60px);
 }
 
 #Contactme label {
@@ -161,13 +154,14 @@ textarea:focus {
     width: 100%;
     /* height: calc(100vh + 60px); */
     height: 100vh;
-    top:40px;
+    max-height: max-content;
+    top:120px;
     left:0;
 }
 
 .makeblur{
     position: absolute;
-    top:60px;
+    top:70px;
     left:0;
     width: 100%;
     height: calc(100vh - 60px);
@@ -176,6 +170,7 @@ textarea:focus {
 .bg_tarnsparent_accor{
     background-color: transparent!important;
     backdrop-filter: brightness(20%);
+    
     
 }
 #mywork .accordion-button:focus {
@@ -206,11 +201,53 @@ textarea:focus {
 /* footer section starts from here. */
 
 footer{
-    background-color: #725B4F;
+    background-color: #2280b7;
+    margin-top: 120px;
 }
 
 footer .social_links ul{
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
+}
+.copy_right{
+    margin:auto;
+    color:black;
+    font-size: 12px;
+    font-weight: 100;
+
+    /* background-color: aqua; */
+}
+
+
+.carousel_container{
+    margin-top: 220px;
+    
+    
+}
+.carousel-item{
+    height: 400px;
+    width: 100%;
+    
+    
+}
+.carousel-item img{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px!important;
+    height: 100%;
+}
+
+.carousel_parent{
+    /* position: relative; */
+    height: 100vh;
+    background-image: url(/static/img/carosobg.jpg);
+    /* background-size: cover; */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /* top:60px; */
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
